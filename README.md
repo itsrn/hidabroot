@@ -15,7 +15,9 @@ _An (unofficial) API for Hidabroot_
 ```bash
 npm install hidabroot
 ```
+
 Or with yarn:
+
 ```bash
 yarn add hidabroot
 ```
@@ -30,13 +32,15 @@ yarn add hidabroot
 ## API
 
 ### todayNews
+
 Returns a promise that resolves to an array of 4 strings (if there is an error it will return null instead) of the top "Hadshot Hayom" from Hidabroot's website.
 
 #### Example:
+
 ```js
 const Hidabroot = require("hidabroot");
 Hidabroot.todayNews().then((result) => {
-    console.log(result);
+  console.log(result);
 });
 ```
 
