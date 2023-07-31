@@ -1,6 +1,6 @@
 {
   "name": "@itsrn/hidabroot",
-  "version": "0.5.0-beta",
+  "version": "0.5.2-beta",
   "description": "An unofficial API for hidabroot",
   "main": "build/index.js",
   "types": "build/index.d.ts",

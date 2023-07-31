@@ -1,6 +1,6 @@
 # Hidabroot API _(unofficial)_
 
-![npm version](https://img.shields.io/badge/npm-v0.5.0_beta-blue)
+![version](https://img.shields.io/github/package-json/v/itsrn/hidabroot/main)
 ![typescript](https://img.shields.io/badge/</>-TypeScript-blue)
 ![issues](https://img.shields.io/github/issues/itsrn/hidabroot)
 ![pull requests](https://img.shields.io/github/issues-pr/itsrn/hidabroot)
@@ -13,13 +13,13 @@ _An (unofficial) API for Hidabroot_
 ## Install
 
 ```bash
-npm install hidabroot
+npm install @itsrn/hidabroot
 ```
 
 Or with yarn:
 
 ```bash
-yarn add hidabroot
+yarn add @itsrn/hidabroot
 ```
 
 ## Features
