@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": ["es2017", "DOM"],
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "outDir": "build",
+    "sourceMap": true,
+    "target": "es5",
+    "declaration": true,
+    "types": ["mocha", "node", "chai"]
+  },
+  "compileOnSave": true,
+  "include": ["src"]
+}
