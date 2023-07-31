@@ -1,6 +1,6 @@
 # Hidabroot API _(unofficial)_
 
-![npm version](https://img.shields.io/badge/npm-v0.5.0-blue)
+![npm version](https://img.shields.io/badge/npm-v0.5.0_beta-blue)
 ![typescript](https://img.shields.io/badge/</>-TypeScript-blue)
 ![issues](https://img.shields.io/github/issues/itsrn/hidabroot)
 ![pull requests](https://img.shields.io/github/issues-pr/itsrn/hidabroot)
