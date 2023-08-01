@@ -1,5 +1,5 @@
 {
-  "name": "@itsrn/hidabroot",
+  "name": "hidabroot",
   "version": "0.5.2-beta",
   "description": "An unofficial API for hidabroot",
   "main": "build/index.js",
