@@ -7,27 +7,27 @@
 
 _An (unofficial) API for Hidabroot_
 
-> [!IMPORTANT]  
-> This API may be blocked at any time by Hidabroot's team. If any damage caused by this API, it is not my fault, use this API at your own risk.
+## Important
+This API may be blocked at any time by Hidabroot's team. If any damage caused by this API, it is not my fault, use this API at your own risk.
 
 ## Install
 
 ```bash
-npm install @itsrn/hidabroot
+npm install hidabroot
 ```
 
 Or with yarn:
 
 ```bash
-yarn add @itsrn/hidabroot
+yarn add hidabroot
 ```
 
 ## Features
 
-> [!NOTE]  
-> The current version is still in beta, meaning more features are coming soon and still in development.
+#### Note
+The current version is still in beta, meaning more features are coming soon and still in development.
 
-- [Getting the news title from the website](#todaynews)
+- [Getting the news titles from the website](#todaynews)
 
 ## API
 
