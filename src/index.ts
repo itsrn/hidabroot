@@ -1,3 +1,4 @@
-import { todayNews } from "./todayNews/index";
+import { todayNews } from "./todayNews";
+import { getArticle } from "./getArticle";
 
-export { todayNews };
+export { todayNews, getArticle };

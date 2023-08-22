@@ -1,4 +1,7 @@
-const Hidabroot = require("../build/index");
-Hidabroot.todayNews().then((response) => {
-  console.log(response);
+const { todayNews, getArticle } = require("../build/index");
+todayNews().then((article) => {
+  const desiredKey = Object.keys(article)[0];
+  getArticle(article[desiredKey]).then((articleContent) => {
+    console.log(articleContent);
+  });
 });

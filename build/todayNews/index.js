@@ -40,55 +40,92 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.todayNews = void 0;
-var puppeteer_1 = __importDefault(require("puppeteer"));
 var cheerio_1 = __importDefault(require("cheerio"));
 /**
  * Retrieves the news titles from "Hadshot Hayom" and returns them in a JSON format.
  *
- * @returns {Promise<string[] | null>} An array of news titles extracted from the website or null if an error occurs.
+ * @returns {Promise<{ [key: string]: number }>} An array of news titles extracted from the website or null if an error occurs.
  */
 function todayNews() {
     return __awaiter(this, void 0, void 0, function () {
-        var url, browser, page, htmlContent, $, articleBlocks, jsonResponse, err_1;
+        var url;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    url = "https://www.hidabroot.org/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%9D";
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 7, , 8]);
-                    return [4 /*yield*/, puppeteer_1.default.launch({
-                            headless: "new",
-                        })];
-                case 2:
-                    browser = _a.sent();
-                    return [4 /*yield*/, browser.newPage()];
-                case 3:
-                    page = _a.sent();
-                    return [4 /*yield*/, page.goto(url)];
-                case 4:
-                    _a.sent();
-                    return [4 /*yield*/, page.content()];
-                case 5:
-                    htmlContent = _a.sent();
-                    return [4 /*yield*/, browser.close()];
-                case 6:
-                    _a.sent();
-                    $ = cheerio_1.default.load(htmlContent);
-                    articleBlocks = $(".article_block");
-                    jsonResponse = [
-                        $(articleBlocks[1]).find("span").attr("title").trim() || null,
-                        $(articleBlocks[2]).find("span").attr("title").trim() || null,
-                        $(articleBlocks[3]).find("span").attr("title").trim() || null,
-                        $(articleBlocks[4]).find("span").attr("title").trim() || null,
-                    ];
-                    return [2 /*return*/, jsonResponse];
-                case 7:
-                    err_1 = _a.sent();
-                    console.error("Error:", err_1);
-                    return [2 /*return*/, undefined];
-                case 8: return [2 /*return*/];
+            url = "https://www.hidabroot.org/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%94%D7%99%D7%95%D7%9D";
+            try {
+                return [2 /*return*/, fetch(url)
+                        .then(function (response) { return response.text(); })
+                        .then(function (html) {
+                        var _a;
+                        var $ = cheerio_1.default.load(html);
+                        var articleBlocks = $(".article_block");
+                        var bigArticleBlock = $(".article_block.mbl_big_article")
+                            .eq(0)
+                            .children()
+                            .eq(1)
+                            .children()
+                            .eq(1)
+                            .children()
+                            .eq(0)
+                            .text() || "";
+                        var bigArticleBlockID = Number($(".article_block.mbl_big_article")
+                            .eq(0)
+                            .children()
+                            .eq(1)
+                            .children()
+                            .eq(1)
+                            .attr("href")
+                            .replace("https://www.hidabroot.org/article/", "")) || 0;
+                        var firstArticleBlockID = Number($(".article_block")
+                            .eq(1)
+                            .children()
+                            .eq(1)
+                            .children()
+                            .eq(1)
+                            .attr("href")
+                            .replace("https://www.hidabroot.org/article/", "")) || 0;
+                        var secondArticleBlockID = Number($(".article_block")
+                            .eq(2)
+                            .children()
+                            .eq(1)
+                            .children()
+                            .eq(1)
+                            .attr("href")
+                            .replace("https://www.hidabroot.org/article/", "")) || 0;
+                        var thirdArticleBlockID = Number($(".article_block")
+                            .eq(3)
+                            .children()
+                            .eq(1)
+                            .children()
+                            .eq(1)
+                            .attr("href")
+                            .replace("https://www.hidabroot.org/article/", "")) || 0;
+                        var fourthArticleBlockID = Number($(".article_block")
+                            .eq(4)
+                            .children()
+                            .eq(1)
+                            .children()
+                            .eq(1)
+                            .attr("href")
+                            .replace("https://www.hidabroot.org/article/", "")) || 0;
+                        var jsonResponse = (_a = {},
+                            _a[bigArticleBlock] = bigArticleBlockID,
+                            _a[$(articleBlocks[1]).find("span").attr("title").trim()] = firstArticleBlockID,
+                            _a[$(articleBlocks[2]).find("span").attr("title").trim()] = secondArticleBlockID,
+                            _a[$(articleBlocks[3]).find("span").attr("title").trim()] = thirdArticleBlockID,
+                            _a[$(articleBlocks[4]).find("span").attr("title").trim()] = fourthArticleBlockID,
+                            _a);
+                        return jsonResponse;
+                    })
+                        .catch(function (error) {
+                        console.error("Error:", error);
+                        return null;
+                    })];
             }
+            catch (err) {
+                console.error("Error:", err);
+                return [2 /*return*/, null];
+            }
+            return [2 /*return*/];
         });
     });
 }
