@@ -4,11 +4,11 @@
     "module": "commonjs",
     "noImplicitReturns": true,
     "esModuleInterop": true,
-    "outDir": "build",
+    "outDir": "lib",
     "sourceMap": true,
     "target": "es5",
     "declaration": true,
-    "types": ["mocha", "node", "chai"]
+    "types": ["node"]
   },
   "compileOnSave": true,
   "include": ["src"]

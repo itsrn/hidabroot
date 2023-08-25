@@ -4,8 +4,9 @@
 ![typescript](https://img.shields.io/badge/</>-TypeScript-blue)
 ![issues](https://img.shields.io/github/issues/itsrn/hidabroot)
 ![pull requests](https://img.shields.io/github/issues-pr/itsrn/hidabroot)
+![Build Status](https://github.com/itsrn/hidabroot/actions/workflows/release.yml/badge.svg)
 
-_An (unofficial) API for Hidabroot_
+> _An (unofficial) API for Hidabroot_
 
 ## Important
 
@@ -23,22 +24,24 @@ Or with yarn:
 yarn add hidabroot
 ```
 
-## Features
+## Usage
 
-#### Note
+```js
+import { todayNews } from "hidabroot";
 
-The current version is still in beta, meaning more features are coming soon and still in development.
+todayNews().then((news) => {
+  console.log(news);
+});
+//=> JSON object containing news titles along with their IDs
+```
 
-- [Getting the news titles from the website](#todaynews)
-- [Viewing articles contents](#getarticle)
+(also compitable with commonjs)
 
 ## API
 
-### todayNews
+### todayNews()
 
-Returns a promise that resolves to a JSON of 5 keys. Each key is the article title, and each key's value is the ID of the article (if there is an error or an issue with getting the values, it will return an empty string as the article title and 0 as the ID) of the top "Hadshot Hayom" from Hidabroot's website. The first key is the biggest box at the top of the page, while the other 4 are the smaller under it.
-
-#### Example:
+#### Example
 
 ```js
 const { todayNews } = require("hidabroot");
@@ -47,30 +50,34 @@ todayNews().then((result) => {
 });
 ```
 
-### getArticle
+Will return something like this:
 
-Returns a promise that resolves to a string (or null, if the article was not found). Here is a detailed table of the parameters of the function:
+```json
+{
+  "big article block title is here": 123456, //the number is the article ID. can be used with getArticle()
+  "first small article block title is here": 123456,
+  "second small article block title is here": 123456,
+  "third small article block title is here": 123456,
+  "fourth small article block title is here": 123456
+}
+```
 
-| Field | Type   | Description                                                                                | Required |
-| ----- | ------ | ------------------------------------------------------------------------------------------ | -------- |
-| id    | number | The ID of the article. Can be found in `https://www.hidabroot.org/article/X` (X is the ID) | yes      |
+### getArticle(id)
 
-#### Example:
+#### id
+
+Type: `number`
+
+The ID of the article. The ID can be found in the URL: `https://www.hidabroot.org/article/X` (X is the ID).
+
+#### Example
 
 ```js
-const { todayNews, getArticle } = require("hidabroot");
-todayNews().then((article) => {
-  //gets todays news
-  const desiredKey = Object.keys(article)[0];
-  //gets the first key in the json. the first article is the biggest box at the top
-  getArticle(article[desiredKey]).then((articleContent) => {
-    //gets the article content of the biggest box at the top
-    console.log(articleContent);
-    //returns the content to the console
-  });
-});
+const { getArticle } = require("hidabroot");
+getArticle(1185334).then((result) => console.log(result));
+//gets the content of the article: https://www.hidabroot.org/article/1185334 and then log the content to the console
 ```
 
 ## Contributing
 
-All contributions are welcome! Feel free to open an issue or a pull request.
+All contributions are welcome! Feel free to open an issue (just search the [issue tracker](https://github.com/itsrn/hidabroot/issues) before opening an issue to make sure your issue hasn't already been reported or answered) or a pull request.
