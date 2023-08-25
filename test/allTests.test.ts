@@ -1,6 +1,6 @@
 import { describe } from "mocha";
 import { expect } from "chai";
-import { todayNews, getArticle } from "../src/index";
+import { todayNews, getArticle } from "../lib/index";
 
 describe("todayNews function", () => {
   it("should return the json object of today news", async () => {
