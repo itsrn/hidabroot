@@ -1,9 +1,9 @@
 {
   "name": "hidabroot",
-  "version": "0.6.3-beta",
+  "version": "0.6.4-beta",
   "description": "An unofficial API for hidabroot",
-  "main": "./lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "scripts": {
     "test": "mocha ./test/allTests.test.ts",
     "build": "tsc",
