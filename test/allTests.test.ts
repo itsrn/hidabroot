@@ -1,6 +1,6 @@
 import { describe } from "mocha";
 import { expect } from "chai";
-import { todayNews, getArticle } from "../lib/index";
+import { todayNews, getArticle } from "../build/index";
 
 describe("todayNews function", () => {
   it("should return the json object of today news", async () => {
@@ -16,9 +16,9 @@ describe("getArticle function", () => {
     expect(result).to.be.a("string");
   });
 
-  it('should return null (because article doesnt exist)', async () => {
+  it("should return null (because article doesnt exist)", async () => {
     const notExistArticleID = 3247328947239478923;
     const result = await getArticle(notExistArticleID);
     expect(result).to.equal(null);
-  })
+  });
 });

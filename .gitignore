@@ -3,6 +3,5 @@ node_modules/
 yarn.lock
 .yarn/
 .pnp.loader.mjs
-.npmignore
 .npmrc
-lib/
+build/
