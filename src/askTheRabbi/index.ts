@@ -34,19 +34,18 @@ export async function askTheRabbi(
             const formattedQuestion =
               question.text().replace(/\s+/g, " ").replace(/<br>/g, "\n") || "";
             // gets the whole div with id "article_inner" and save only the answer div in the answer variable
-            const answer = $("[id=article_inner]").contents().eq(1);
+            const answer = $("[id=article_inner]").contents().eq(3);
             // format the answer div text content
-            const formattedAnswer =
-              answer.text().replace(/\s+/g, " ").replace(/<br>/g, "\n") || "";
-            // saves the json response
-            const jsonResponse = {
+            const formattedAnswer = answer
+              .text()
+              .replace(/<br>/g, "\n")
+              .replace(/\s+/g, " ")
+              .trim();
+            return {
               title: header,
               question: formattedQuestion,
               answer: formattedAnswer,
             };
-
-            // returns the json response
-            return jsonResponse;
           }
         })
         .catch((error) => {

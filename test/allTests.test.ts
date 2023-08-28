@@ -33,6 +33,7 @@ describe("askTheRabbi function", () => {
   it("should return a json with 2 string keys - question and answer", async () => {
     const questionID = 325090;
     const response = await askTheRabbi(questionID);
+    console.log(response);
     expect(response).to.be.an("object");
   });
 
