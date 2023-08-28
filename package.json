@@ -36,6 +36,7 @@
   "dependencies": {
     "@testdeck/mocha": "^0.3.3",
     "cheerio": "^1.0.0-rc.12",
+    "hidabroot": "^0.8.0-beta",
     "nyc": "^15.1.0",
     "ts-mockito": "^2.6.1"
   }
