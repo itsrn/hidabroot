@@ -1,5 +1,5 @@
 .gitignore
-tests/
+test/
 src/
 .yarn/
 .github/

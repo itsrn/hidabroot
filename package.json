@@ -1,6 +1,6 @@
 {
   "name": "hidabroot",
-  "version": "0.6.4-beta",
+  "version": "0.8.0-beta",
   "description": "An unofficial API for hidabroot",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -21,6 +21,7 @@
     "url": "git+https://github.com/itsrn/hidabroot"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
     "@types/node": "^16.10.2",
     "chai": "^4.3.8",
